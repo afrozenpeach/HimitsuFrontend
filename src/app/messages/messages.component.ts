@@ -1,0 +1,60 @@
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MysqlService } from '../services/mysql.service';
+import { toHTML } from 'discord-markdown'
+
+@Component({
+  selector: 'app-messages',
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
+})
+export class MessagesComponent implements OnInit {
+
+  private channel: any;
+  private channels = {
+    "737358686967693313": "main-plot-discussion",
+    "737359478378463324": "forest-nobles-discussion",
+    "737359557705072660": "floran-court-discussion",
+    "737359591737917471": "hanalan-commons-discussion",
+    "737360129090912326": "kanemoria-general-discussion",
+    "737359694947024896": "atsiria-general-discussion",
+    "737360162821636228": "kanemoria-fayre-discussion",
+    "737363943890354236": "north-dentoria-and-frostlands-discussion",
+    "737364007626997813": "east-and-west-dentoria-discussion",
+    "737363825224974346": "korin-discussion",
+    "737364105949741077": "eblar-and-southern-dentoria-discussion"    
+  }
+
+  messages: any[] = [];
+
+  constructor(
+    private mysql: MysqlService,
+    private route: ActivatedRoute
+    ) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.channel = params['channel']
+    
+      this.getMessages(this.channel)
+    })
+  }
+
+  private getMessages(channel) {
+    var vm = this;
+
+    this.mysql.getMessages(channel).then((response: any) => {
+      this.messages = response
+
+      this.messages.forEach(m => {
+        m.content = toHTML(m.content, {
+          discordCallback: {
+            channel: node => "#" + vm.channels[node.id]
+          }
+        });
+      })
+    });
+  }
+  
+}

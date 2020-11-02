@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/highlight.js/styles/dracula.css"              
             ],
             "scripts": []
           },
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "HimitsuFrontend"
+    }
+  },
+  "defaultProject": "HimitsuFrontend",
+  "cli": {
+    "analytics": "56347c0d-f11d-4f95-a352-1fd013294e5b"
+  }
 }

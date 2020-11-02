@@ -1,0 +1,6 @@
+<div class="messageContainer" *ngFor="let m of messages">
+    <div class="message" *ngIf="m.content != '!archive' && m.content != 'Starting archive...'">
+        <div class="messagePoster">{{m.poster}}</div>    
+        <div class="messageContent" [innerHTML]="m.content"></div>
+    </div>
+</div>
