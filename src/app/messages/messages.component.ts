@@ -48,7 +48,7 @@ export class MessagesComponent implements OnInit {
       this.messages = response
 
       this.messages.forEach(m => {
-        m.content = toHTML(m.content, {
+        m[3] = toHTML(m[3], {
           discordCallback: {
             channel: node => "#" + vm.channels[node.id]
           }
