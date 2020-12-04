@@ -9,7 +9,7 @@ describe('MessagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterModule.forRoot([]) ],
+      imports: [HttpClientTestingModule, RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }) ],
       declarations: [ MessagesComponent ]
     })
     .compileComponents();
