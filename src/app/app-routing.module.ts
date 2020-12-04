@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'channel/:channel',
     loadChildren: () => import('./messages/messages.module').then(m => m.MessagesModule)
   }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

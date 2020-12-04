@@ -9,6 +9,18 @@ export class MysqlService {
 
   constructor(private http: HttpClient) { }
 
+  getChannels(category) {
+    return this.request('GET', environment.serverUrl + '/channels/category/' + category);
+  }
+
+  getMessages(channel) {
+    return this.request('GET', environment.serverUrl + '/messages/channel/' + channel);
+  }
+
+  getCategories() {
+    return this.request('GET', environment.serverUrl + '/categories');
+  }
+
   private async request(method: string, url: string, data?: any) {
     const result = this.http.request(method, url, {
       body: data,
@@ -20,17 +32,5 @@ export class MysqlService {
     return new Promise((resolve, reject) => {
       result.subscribe(resolve, reject);
     });
-  }
-
-  getChannels(category) {
-    return this.request('GET', environment.serverUrl + "/channels/category/" + category);
-  }
-
-  getMessages(channel) {
-    return this.request('GET', environment.serverUrl + "/messages/channel/" + channel);
-  }
-
-  getCategories() {
-    return this.request('GET', environment.serverUrl + "/categories");
   }
 }

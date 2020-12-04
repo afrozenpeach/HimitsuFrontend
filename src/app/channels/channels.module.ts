@@ -5,7 +5,7 @@ import { ChannelsComponent } from './channels.component';
 
 const routes: Routes = [
   { path: '', component: ChannelsComponent, pathMatch: 'full' }
-]
+];
 
 @NgModule({
   declarations: [],

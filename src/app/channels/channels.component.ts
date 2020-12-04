@@ -9,9 +9,9 @@ import { MysqlService } from '../services/mysql.service';
 })
 export class ChannelsComponent implements OnInit {
 
-  private category: any;
-
   channels: any[] = [];
+
+  private category: any;
 
   constructor(
     private mysql: MysqlService,
@@ -20,15 +20,15 @@ export class ChannelsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.category = params['category']
-    
-      this.getChannels(this.category)
-    })
+      this.category = params.category;
+
+      this.getChannels(this.category);
+    });
   }
 
   private getChannels(category) {
     this.mysql.getChannels(category).then((response: any) => {
-      this.channels = response
+      this.channels = response;
     });
   }
 
