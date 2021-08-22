@@ -60,7 +60,7 @@ export class MessagesComponent implements OnInit {
               if (typeof vm.channels[node.id] === 'object') {
                 return '<a href="/channel/' + vm.channels[node.id].id + '">#' + vm.channels[node.id].name + '</a>';
               } else {
-                return '#' + vm.channels[node.id];
+                return '<a href="https://discord.com/channels/737344328581513268/' + node.id + '">#' + vm.channels[node.id] + '</a>';
               }
             }
           },
