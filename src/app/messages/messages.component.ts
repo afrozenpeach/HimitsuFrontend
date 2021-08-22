@@ -58,7 +58,7 @@ export class MessagesComponent implements OnInit {
           discordCallback: {
             channel: node => {
               if (typeof vm.channels[node.id] === 'object') {
-                return '#' + vm.channels[node.id].name;
+                return '<a href="/channel/' + vm.channels[node.id].id + '">#' + vm.channels[node.id].name + '</a>';
               } else {
                 return '#' + vm.channels[node.id];
               }
