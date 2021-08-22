@@ -37,7 +37,13 @@ export class MessagesComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.channel = params.channel;
 
-      this.getMessages(this.channel);
+      this.mysql.getChannels(undefined).then((response: any) => {
+        response.forEach(c => {
+          Object.defineProperty(this.channels, c[3], { value: {name: c[2], id: c[0]}, writable: false });
+        });
+
+        this.getMessages(this.channel);
+      });
     });
   }
 
@@ -50,8 +56,15 @@ export class MessagesComponent implements OnInit {
       this.messages.forEach(m => {
         m[3] = toHTML(m[3], {
           discordCallback: {
-            channel: node => '#' + vm.channels[node.id]
-          }
+            channel: node => {
+              if (typeof vm.channels[node.id] === 'object') {
+                return '#' + vm.channels[node.id].name;
+              } else {
+                return '#' + vm.channels[node.id];
+              }
+            }
+          },
+          cssModuleNames: {}
         });
       });
     });
