@@ -58,7 +58,7 @@ export class MessagesComponent implements OnInit {
 
       this.mysql.getChannels(undefined).then((response: any) => {
         response.forEach(c => {
-          Object.defineProperty(this.channels, c[3], { value: {name: c[2], id: c[0]}, writable: false });
+          Object.defineProperty(this.channels, c.discordId, { value: {name: c.channel, id: c.id}, writable: false });
         });
 
         this.getMessages(this.channel);
