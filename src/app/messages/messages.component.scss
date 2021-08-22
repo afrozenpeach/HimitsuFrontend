@@ -1,7 +1,25 @@
 .message {
+    display: flex;
+
     .messageContent {
         img.d-emoji {
             height: 15px;
         }
+
+        flex: 1;
     }
+
+    .messagePoster {
+        width: 100px;
+        text-align: right;
+        padding-right: 5px;
+    }
+}
+
+.messageContainer:first-of-type {
+     .messagePoster {
+         display: none;
+     }
+
+     padding-bottom: 10px;
 }
