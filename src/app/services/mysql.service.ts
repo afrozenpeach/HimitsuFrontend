@@ -10,7 +10,11 @@ export class MysqlService {
   constructor(private http: HttpClient) { }
 
   getChannels(category) {
-    return this.request('GET', environment.serverUrl + '/channels/category/' + category);
+    if (category === undefined) {
+      return this.request('GET', environment.serverUrl + '/channels');
+    } else {
+      return this.request('GET', environment.serverUrl + '/channels/category/' + category);
+    }
   }
 
   getMessages(channel) {
