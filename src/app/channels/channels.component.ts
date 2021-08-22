@@ -11,7 +11,7 @@ export class ChannelsComponent implements OnInit {
 
   channels: any[] = [];
 
-  private category: any;
+  category: any;
 
   constructor(
     private mysql: MysqlService,

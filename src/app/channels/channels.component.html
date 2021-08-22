@@ -1,3 +1,14 @@
-<div class="channel" *ngFor="let c of channels">
-    <a href="/channel/{{c.id}}">{{c.date | amDateFormat: 'MMMM Do YYYY' }} ar - {{c.location}} - {{c.characters}}</a>
-</div>
+<h1>{{category}}</h1>
+
+<table>
+    <tr>
+       <th>Date</th>
+       <th>Location</th>
+       <th>Characters</th>
+    </tr>
+    <tr class="channel" *ngFor="let c of channels">
+        <td><a href="/channel/{{c.id}}">{{c.date | amDateFormat: 'MMMM Do YYYY' }} ar</a></td>
+        <td>{{c.location}}</td>
+        <td>{{c.characters.join(', ')}}</td>
+    </tr>
+</table>
