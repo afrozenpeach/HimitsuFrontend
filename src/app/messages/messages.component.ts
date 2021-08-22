@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MysqlService } from '../services/mysql.service';
-import { toHTML } from 'discord-markdown';
+import { toHTML, rules, htmlTag } from 'discord-markdown';
 
 @Component({
   selector: 'app-messages',
@@ -34,6 +34,25 @@ export class MessagesComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    rules.discordEmoji = {
+      match: source => /^<(a?):(\w+):(\d+)>/.exec(source),
+      parse: function(capture) {
+        return {
+          animated: capture[1] === "a",
+          name: capture[2],
+          id: capture[3],
+        };
+      },
+      html: function(node, output, state) {
+        return htmlTag('img', '', {
+          class: `d-emoji${node.animated ? ' d-emoji-animated' : ''}`,
+          src: `https://cdn.discordapp.com/emojis/${node.id}.${node.animated ? 'gif' : 'png'}`,
+          alt: `:${node.name}:`,
+          title: `${node.name.charAt(0).toUpperCase() + node.name.slice(1)}`
+        }, false, state);
+      }
+    };
+
     this.route.params.subscribe(params => {
       this.channel = params.channel;
 
