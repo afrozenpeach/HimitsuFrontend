@@ -21,5 +21,11 @@
          display: none;
      }
 
+     .messageContent {
+        pre {
+            white-space: pre-wrap;
+        }
+     }
+
      padding-bottom: 10px;
 }
