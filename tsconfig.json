@@ -18,5 +18,8 @@
       "dom.Iterable"
     ],
     "allowSyntheticDefaultImports": true
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true
   }
 }
