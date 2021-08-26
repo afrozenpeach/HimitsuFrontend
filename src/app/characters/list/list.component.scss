@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+        th {
+            border-top-left-radius: 1em;
+            border-top-right-radius: 1em;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        td.picture {
+            img {
+                height: 100px;
+                width: 100px;
+            }
+
+            padding: 0px;
+        }
+
+        td.nicknames {
+            span + span:last-child {
+                &::before {
+                    content: ", ";
+                }
+            }
+            span:nth-of-type(n + 2):not(:last-child) {
+                &::before {
+                    content: ", ";
+                }
+            }
+        }
+    }
+
+    tr:nth-child(even) {
+        background-color: #36393f;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #2f3136;
+    }
+}
