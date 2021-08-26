@@ -29,6 +29,14 @@ export class CharacterComponent implements OnInit {
     this.getCharacter();
   }
 
+  public getRoute(charType) {
+    if (charType === 'pc') {
+      return 'characters';
+    } else {
+      return 'npcs';
+    }
+  }
+
   private getCharacter() {
     this.mysql.getCharacter(this.characterId).then((response: any) => {
       this.character = response;

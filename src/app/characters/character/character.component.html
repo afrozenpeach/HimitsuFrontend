@@ -129,12 +129,12 @@
 
     <div class="relationships" *ngIf="character.relationships">
         <h4>Relationships</h4>
-        <p *ngFor="let r of character.relationships">{{r.Name}} - {{r.Relationship}}</p>
+        <p *ngFor="let r of character.relationships"><a href="/{{getRoute(r.CharType)}}/{{r.CharID}}">{{r.Name}}</a> - {{r.Relationship}}</p>
     </div>
 
     <div class="connections" *ngIf="character.connections">
         <h4>Connections</h4>
-        <p *ngFor="let c of character.connections">{{c.Name}} - {{c.Relationship}}</p>
+        <p *ngFor="let c of character.connections"><a href="/{{getRoute(c.CharType)}}/{{c.CharID}}">{{c.Name}}</a> - {{c.Relationship}}</p>
     </div>
 
     <div class="weapons" *ngIf="character.weapons">
