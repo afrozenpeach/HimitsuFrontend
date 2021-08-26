@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MysqlService } from '../services/mysql.service';
+import { MysqlService } from '../../services/mysql.service';
 import { toHTML, rules, htmlTag } from 'discord-markdown';
 
 @Component({

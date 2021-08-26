@@ -7,7 +7,7 @@
        <th>Characters</th>
     </tr>
     <tr class="channel" *ngFor="let c of channels">
-        <td><a href="/channel/{{c.id}}">{{c.date | amDateFormat: 'MMMM Do YYYY' }} ar</a></td>
+        <td><a href="/archives/messages/{{c.id}}">{{c.date | amDateFormat: 'MMMM Do YYYY' }} ar</a></td>
         <td>{{c.location}}</td>
         <td>{{c.characters.join(', ')}}</td>
     </tr>

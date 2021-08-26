@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MysqlService } from '../services/mysql.service';
+import { MysqlService } from '../../services/mysql.service';
 
 @Component({
   selector: 'app-channels',

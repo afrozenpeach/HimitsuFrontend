@@ -4,16 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule),
+    loadChildren: () => import('./archives/archives.module').then(m => m.ArchivesModule),
     pathMatch: 'full'
   },
   {
-    path: 'category/:category',
-    loadChildren: () => import('./channels/channels.module').then(m => m.ChannelsModule)
-  },
-  {
-    path: 'channel/:channel',
-    loadChildren: () => import('./messages/messages.module').then(m => m.MessagesModule)
+    path: 'archives',
+    loadChildren: () => import('./archives/archives.module').then(m => m.ArchivesModule),
   },
   {
     path: 'characters',
