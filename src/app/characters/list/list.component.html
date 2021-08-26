@@ -1,3 +1,24 @@
-<div class="characterList" *ngFor="let c of characters">
-    <a href="/characters/{{c['ID']}}">{{c['name']}}</a>
-</div>
+<table>
+    <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Nicknames</th>
+        <th>Journal</th>
+        <th>Player</th>
+        <th>Status</th>
+        <th>Sect</th>
+        <th>Hometown/Country</th>
+        <th>House</th>
+    </tr>
+    <tr *ngFor="let c of characters">
+        <td class="picture"><a href="/characters/{{c['ID']}}"><img src="https://host.lgbt/pics/{{c['picture']}}"></a></td>
+        <td class="name"><a href="/characters/{{c['ID']}}">{{c['name']}}</a></td>
+        <td class="nicknames"><span *ngIf="c['nickname1']">{{c['nickname1']}}</span><span *ngIf="c['nickname2']">{{c['nickname2']}}</span></td>
+        <td class="journal"><a href="https://{{c['journal']}}.dreamwidth.org/">{{c['journal']}}</a></td>
+        <td class="player">{{c['player']}}</td>
+        <td class="status">{{c['status']}}</td>
+        <td class="sect">{{c['sect']}}</td>
+        <td class="hometown">{{c['hometown']}}, {{c['country']}}</td>
+        <td class="house">{{c['house']}}</td>
+    </tr>
+</table>
