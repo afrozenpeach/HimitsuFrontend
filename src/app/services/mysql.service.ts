@@ -25,6 +25,14 @@ export class MysqlService {
     return this.request('GET', environment.serverUrl + '/categories');
   }
 
+  getCharacters() {
+    return this.request('GET', environment.serverUrl + '/characters');
+  }
+
+  getCharacter(id) {
+    return this.request('GET', environment.serverUrl + '/characters/' + id);
+  }
+
   private async request(method: string, url: string, data?: any) {
     const result = this.http.request(method, url, {
       body: data,

@@ -1,0 +1,9 @@
+<div class="profile">
+    <h2>{{character.name}}</h2>
+    <h3 *ngIf="character.nickname1 || character.nickname2">
+        (
+            <span *ngIf="character.nickname1">{{character.nickname1}}</span>
+            <span *ngIf="character.nickname2">{{character.nickname2}}</span>
+        )
+    </h3>
+</div>
