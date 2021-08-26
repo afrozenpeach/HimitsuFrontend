@@ -16,6 +16,19 @@
     div.nameblock {
         width: auto;
         height: 120px;
+
+        h3 {
+            span + span:last-child {
+                &::before {
+                    content: ", ";
+                }
+            }
+            span:nth-of-type(n + 2):not(:last-child) {
+                &::before {
+                    content: ", ";
+                }
+            }
+        }
     }
 
     img {
