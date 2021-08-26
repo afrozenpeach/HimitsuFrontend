@@ -36,21 +36,18 @@ export class MessagesComponent implements OnInit {
   ngOnInit(): void {
     rules.discordEmoji = {
       match: source => /^<(a?):(\w+):(\d+)>/.exec(source),
-      parse: function(capture) {
-        return {
-          animated: capture[1] === "a",
-          name: capture[2],
-          id: capture[3],
-        };
-      },
-      html: function(node, output, state) {
-        return htmlTag('img', '', {
+      parse: (capture) => ({
+        animated: capture[1] === 'a',
+        name: capture[2],
+        id: capture[3],
+      }),
+      html: (node, output, state) =>
+        htmlTag('img', '', {
           class: `d-emoji${node.animated ? ' d-emoji-animated' : ''}`,
           src: `https://cdn.discordapp.com/emojis/${node.id}.${node.animated ? 'gif' : 'png'}`,
           alt: `:${node.name}:`,
           title: `${node.name.charAt(0).toUpperCase() + node.name.slice(1)}`
-        }, false, state);
-      }
+        }, false, state)
     };
 
     this.route.params.subscribe(params => {
