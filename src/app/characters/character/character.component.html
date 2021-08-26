@@ -1,13 +1,15 @@
 <div class="profile" *ngIf="character">
-    <img class="picture" *ngIf="character.picture" src="https://host.lgbt/pics/{{character.picture}}">
+    <div class="nameblock">
+        <img class="picture" *ngIf="character.picture" src="https://host.lgbt/pics/{{character.picture}}">
 
-    <h2>{{character.name}}</h2>
-    <h3 *ngIf="character.nickname1 || character.nickname2">
-        (
-            <span *ngIf="character.nickname1">{{character.nickname1}}</span>
-            <span *ngIf="character.nickname2">{{character.nickname2}}</span>
-        )
-    </h3>
+        <h2>{{character.name}}</h2>
+        <h3 *ngIf="character.nickname1 || character.nickname2">
+            (
+                <span *ngIf="character.nickname1">{{character.nickname1}}</span>
+                <span *ngIf="character.nickname2">{{character.nickname2}}</span>
+            )
+        </h3>
+    </div>
 
     <div class="notes" *ngIf="character.identifiers || character.noncombat">
         <h4>Notes</h4>
