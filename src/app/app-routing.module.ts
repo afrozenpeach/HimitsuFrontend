@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'characters',
     loadChildren: () => import('./characters/characters.module').then(m => m.CharactersModule)
+  },
+  {
+    path: 'npcs',
+    loadChildren: () => import('./npcs/npcs.module').then(m => m.NPCsModule)
   }
 ];
 

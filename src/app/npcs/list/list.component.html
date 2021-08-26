@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Sect</th>
+        <th>Hometown/Country</th>
+    </tr>
+    <tr *ngFor="let c of npcs">
+        <td class="name"><a href="/npcs/{{c['ID']}}">{{c['npcName']}}</a></td>
+        <td class="status">{{c['npcStatus']}}</td>
+        <td class="sect">{{c['npcSect']}}</td>
+        <td class="hometown">{{c['npcCity']}}, {{c['npcCountry']}}</td>
+    </tr>
+</table>

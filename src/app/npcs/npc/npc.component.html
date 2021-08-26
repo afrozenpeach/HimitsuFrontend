@@ -1,0 +1,88 @@
+<div class="profile" *ngIf="npc">
+    <h2>{{npc.npcName}}</h2>
+
+    <div class="notes" *ngIf="npc.npcNotes">
+        <h4>Notes</h4>
+        <p *ngIf="npc.npcNotes" [innerHtml]="npc.npcNotes"></p>
+    </div>
+
+    <div class="player float" *ngIf="npc.Player">
+        <h4>Player</h4>
+        <p>{{npc.Player}}</p>
+    </div>
+
+    <div class="hometown float" *ngIf="npc.npcCity || npc.npcCountry">
+        <h4>Hometown/Country</h4>
+        <p>{{npc.npcCity}}, {{npc.npcCountry}}</p>
+    </div>
+
+    <div class="birthday float" *ngIf="npc.npcBirthMonth || npc.npcBirthDate || npc.npcBirthYear">
+        <h4>Birthday</h4>
+        <p><span class="birthmonth" *ngIf="npc.npcBirthMonth != 'Unspecified'">{{npc.npcBirthMonth}}</span> <span class="birthdate" *ngIf="npc.npcBirthDate">{{npc.npcBirthDate}},</span> <span class="birthyear" *ngIf="npc.npcBirthYear">{{npc.npcBirthYear}} AR</span></p>
+    </div>
+
+    <div class="gender float" *ngIf="npc.npcGender">
+        <h4>Gender</h4>
+        <p>{{npc.npcGender}}</p>
+    </div>
+
+    <div class="orientation float" *ngIf="npc.npcOrientation">
+        <h4>Orientation</h4>
+        <p>{{npc.npcOrientation}}</p>
+    </div>
+
+    <div class="sect float" *ngIf="npc.npcSect">
+        <h4>Sect</h4>
+        <p>{{npc.npcSect}}</p>
+    </div>
+
+    <div class="status float" *ngIf="npc.npcStatus">
+        <h4>Status</h4>
+        <p>{{npc.npcStatus}}</p>
+    </div>
+
+    <div class="appable float" *ngIf="npc.npcAppable">
+        <h4>Appable</h4>
+        <p>{{npc.npcAppable}}</p>
+    </div>
+
+    <div class="class float" *ngIf="npc.npcClass">
+        <h4>Class</h4>
+        <p>{{npc.npcClass}}</p>
+    </div>
+
+    <div class="profession float" *ngIf="npc.npcProfession">
+        <h4>Profession</h4>
+        <p>{{npc.npcProfession}}</p>
+    </div>
+
+    <div class="haircolor float" *ngIf="npc.npcHairColor">
+        <h4>Hair Color</h4>
+        <p>{{npc.npcHairColor}}</p>
+    </div>
+
+    <div class="eyecolor float" *ngIf="npc.npcEyeColor">
+        <h4>Eye Color</h4>
+        <p>{{npc.npcEyeColor}}</p>
+    </div>
+
+    <div class="height float" *ngIf="npc.npcHeightImperial || npc.npcHeightMetric">
+        <h4>Height</h4>
+        <p>{{npc.npcHeightImperial}} ({{npc.npcHeightMetric}}cm)</p>
+    </div>
+
+    <div class="build float" *ngIf="npc.npcBuild">
+        <h4>Build</h4>
+        <p>{{npc.npcBuild}}</p>
+    </div>
+
+    <div class="relationships" *ngIf="npc.relationships">
+        <h4>Relationships</h4>
+        <p *ngFor="let r of npc.relationships"><a href="/characters/{{r.CharID}}">{{r.Name}}</a> - {{r.Relationship}}</p>
+    </div>
+
+    <div class="connections" *ngIf="npc.connections">
+        <h4>Connections</h4>
+        <p *ngFor="let c of npc.connections"><a href="/characters/{{c.CharID}}">{{c.Name}}</a> - {{c.Relationship}}</p>
+    </div>
+</div>

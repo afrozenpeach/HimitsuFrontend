@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MysqlService } from '../../services/mysql.service';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-character',
