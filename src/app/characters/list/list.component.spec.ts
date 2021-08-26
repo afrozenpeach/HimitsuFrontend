@@ -9,7 +9,8 @@ describe('ListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListComponent, HttpClientTestingModule ]
+      imports: [ HttpClientTestingModule ],
+      declarations: [ ListComponent ]
     })
     .compileComponents();
   });

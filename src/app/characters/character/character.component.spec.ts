@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 
 import { CharacterComponent } from './character.component';
 
@@ -9,7 +10,8 @@ describe('CharacterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharacterComponent, HttpClientTestingModule ]
+      imports: [ HttpClientTestingModule, RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }) ],
+      declarations: [ CharacterComponent ]
     })
     .compileComponents();
   });

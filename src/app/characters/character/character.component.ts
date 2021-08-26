@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MysqlService } from '../../services/mysql.service';
-import { switchMap, map } from 'rxjs/operators';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-character',
