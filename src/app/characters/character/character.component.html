@@ -9,8 +9,8 @@
         )
     </h3>
 
-    <div class="notes">
-        <h4 *ngIf="character.identifiers || character.noncombat">Notes</h4>
+    <div class="notes" *ngIf="character.identifiers || character.noncombat">
+        <h4>Notes</h4>
         <p class="identifiers" *ngIf="character.identifiers">{{character.identifiers}}</p>
         <p class="noncombat" *ngIf="character.noncombat" [innerHtml]="character.noncombat"></p>
     </div>
