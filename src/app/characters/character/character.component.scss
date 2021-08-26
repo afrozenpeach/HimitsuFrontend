@@ -1,0 +1,21 @@
+.profile {
+    div {
+        clear: both;
+        width: 200px;
+    }
+
+    div.float {
+        float: left;
+        clear: none;
+    }
+
+    div.notes {
+        width: auto;
+    }
+
+    img {
+        float: left;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+}

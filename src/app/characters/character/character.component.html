@@ -1,4 +1,6 @@
 <div class="profile" *ngIf="character">
+    <img class="picture" *ngIf="character.picture" src="https://host.lgbt/pics/{{character.picture}}">
+
     <h2>{{character.name}}</h2>
     <h3 *ngIf="character.nickname1 || character.nickname2">
         (
@@ -7,111 +9,113 @@
         )
     </h3>
 
-    <h4 *ngIf="character.identifiers || character.noncombat">Notes</h4>
-    <p class="identifiers" *ngIf="character.identifiers">{{character.identifiers}}</p>
-    <p class="noncombat" *ngIf="character.noncombat">{{character.noncombat}}</p>
+    <div class="notes">
+        <h4 *ngIf="character.identifiers || character.noncombat">Notes</h4>
+        <p class="identifiers" *ngIf="character.identifiers">{{character.identifiers}}</p>
+        <p class="noncombat" *ngIf="character.noncombat" [innerHtml]="character.noncombat"></p>
+    </div>
 
-    <div class="player" *ngIf="character.player">
+    <div class="player float" *ngIf="character.player">
         <h4>Player</h4>
         <p>{{character.player}}</p>
     </div>
 
-    <div class="status" *ngIf="character.status">
+    <div class="status float" *ngIf="character.status">
         <h4>Status</h4>
         <p>{{character.status}}</p>
     </div>
 
-    <div class="sect" *ngIf="character.sect">
+    <div class="sect float" *ngIf="character.sect">
         <h4>Sect</h4>
         <p>{{character.sect}}</p>
     </div>
 
-    <div class="birthday" *ngIf="character.birthmonth && character.birthdate && character.year">
+    <div class="birthday float" *ngIf="character.birthmonth && character.birthdate && character.year">
         <h4>Birthday</h4>
         <p>{{character.birthmonth}} {{character.birthdate}}, {{character.year}} AR</p>
     </div>
 
-    <div class="zodiac" *ngIf="character.zodiac">
+    <div class="zodiac float" *ngIf="character.zodiac">
         <h4>Zodiac</h4>
         <p>{{character.zodiac}}</p>
     </div>
 
-    <div class="bloodtype" *ngIf="character.bloodtype">
+    <div class="bloodtype float" *ngIf="character.bloodtype">
         <h4>Blood Type</h4>
         <p>{{character.bloodtype}}</p>
     </div>
 
-    <div class="gender" *ngIf="character.gender">
+    <div class="gender float" *ngIf="character.gender">
         <h4>Gender</h4>
         <p>{{character.gender}}</p>
     </div>
 
-    <div class="orientation" *ngIf="character.orientation">
+    <div class="orientation float" *ngIf="character.orientation">
         <h4>Orientation</h4>
         <p>{{character.orientation}}</p>
     </div>
 
-    <div class="haircolor" *ngIf="character.haircolor">
+    <div class="haircolor float" *ngIf="character.haircolor">
         <h4>Hair Color</h4>
         <p>{{character.haircolor}}</p>
     </div>
 
-    <div class="eyecolor" *ngIf="character.eyecolor">
+    <div class="eyecolor float" *ngIf="character.eyecolor">
         <h4>Eye Color</h4>
         <p>{{character.eyecolor}}</p>
     </div>
 
-    <div class="height" *ngIf="character.heightfeet && character.heightinches && character.heightcms">
+    <div class="height float" *ngIf="character.heightfeet && character.heightinches && character.heightcms">
         <h4>Height</h4>
         <p>{{character.heightfeet}}'{{character.heightinches}}" ({{character.heightcms}} cm)</p>
     </div>
 
-    <div class="build" *ngIf="character.build">
+    <div class="build float" *ngIf="character.build">
         <h4>Build</h4>
         <p>{{character.build}}</p>
     </div>
 
-    <div class="skintone" *ngIf="character.skintone">
+    <div class="skintone float" *ngIf="character.skintone">
         <h4>Skin Tone</h4>
         <p>{{character.skintone}}</p>
     </div>
 
-    <div class="cupsize" *ngIf="character.cupsize">
+    <div class="cupsize float" *ngIf="character.cupsize">
         <h4>Cup Size</h4>
         <p>{{character.cupsize}}</p>
     </div>
 
-    <div class="hometown" *ngIf="character.hometown || character.country">
+    <div class="hometown float" *ngIf="character.hometown || character.country">
         <h4>Hometown/Country</h4>
         <p>{{character.hometown}}<span *ngIf="character.hometown">,</span> {{character.country}}</p>
     </div>
 
-    <div class="house" *ngIf="character.house">
+    <div class="house float" *ngIf="character.house">
         <h4>House</h4>
         <p>{{character.house}}</p>
     </div>
 
-    <div class="socialclass" *ngIf="character.socialclass">
+    <div class="socialclass float" *ngIf="character.socialclass">
         <h4>Social Class</h4>
         <p>{{character.socialclass}}</p>
     </div>
 
-    <div class="jobs" *ngIf="character.jobs">
+    <div class="jobs float" *ngIf="character.jobs">
         <h4>Jobs</h4>
         <p>{{character.jobs}}</p>
     </div>
 
-    <div class="subjobs" *ngIf="character.subjobs">
+    <div class="subjobs float" *ngIf="character.subjobs">
         <h4>Subjobs</h4>
         <p>{{character.subjobs}}</p>
     </div>
 
-    <div class="class" *ngIf="character.class">
+    <div class="class float" *ngIf="character.class">
         <h4>Class</h4>
         <p>{{character.class}}</p>
     </div>
 
-    <div class="pastclasses" *ngIf="character.pastclasses">
+    <div class="pastclasses float" *ngIf="character.pastclasses">
         <h4>Past Classes</h4>
         <p>{{character.pastclasses}}</p>
     </div>
