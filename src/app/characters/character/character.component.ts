@@ -40,8 +40,13 @@ export class CharacterComponent implements OnInit {
   private getCharacter() {
     this.mysql.getCharacter(this.characterId).then((response: any) => {
       this.character = response;
+
       if (this.character.noncombat) {
         this.character.noncombat = this.sanitizer.bypassSecurityTrustHtml(this.character.noncombat);
+      }
+
+      if (this.character.identifiers) {
+        this.character.identifiers = this.sanitizer.bypassSecurityTrustHtml(this.character.identifiers);
       }
     });
   }

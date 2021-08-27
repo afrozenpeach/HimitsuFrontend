@@ -13,7 +13,7 @@
 
     <div class="notes" *ngIf="character.identifiers || character.noncombat">
         <h4>Notes</h4>
-        <p class="identifiers" *ngIf="character.identifiers">{{character.identifiers}}</p>
+        <p class="identifiers" *ngIf="character.identifiers" [innerHtml]="character.identifiers"></p>
         <p class="noncombat" *ngIf="character.noncombat" [innerHtml]="character.noncombat"></p>
     </div>
 
@@ -139,11 +139,172 @@
 
     <div class="weapons" *ngIf="character.weapons">
         <h4>Weapon Proficiencies</h4>
-        <span>Coming Soon</span>
+        <table>
+            <tr>
+                <th>Axes</th>
+                <th>Swords</th>
+                <th>Daggers</th>
+                <th>Lances</th>
+            </tr>
+            <tr>
+                <td>{{character.weapons.Axes}}</td>
+                <td>{{character.weapons.Swords}}</td>
+                <td>{{character.weapons.Daggers}}</td>
+                <td>{{character.weapons.Lances}}</td>
+            </tr>
+            <tr>
+                <th>Maces</th>
+                <th>QStaves</th>
+                <th>Whips</th>
+                <th>Unarmed</th>
+            </tr>
+            <tr>
+                <td>{{character.weapons.Maces}}</td>
+                <td>{{character.weapons.QStaves}}</td>
+                <td>{{character.weapons.Whips}}</td>
+                <td>{{character.weapons.Unarmed}}</td>
+            </tr>
+            <tr>
+                <th>LBows</th>
+                <th>SBows</th>
+                <th>CBows</th>
+                <th>Thrown</th>
+            </tr>
+            <tr>
+                <td>{{character.weapons.LBows}}</td>
+                <td>{{character.weapons.SBows}}</td>
+                <td>{{character.weapons.CBows}}</td>
+                <td>{{character.weapons.Thrown}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="magic" *ngIf="character.weapons">
+        <h4>Magic Proficiencies</h4>
+        <table>
+            <tr>
+                <th>Fire</th>
+                <th>Wind</th>
+                <th>Thunder</th>
+            </tr>
+            <tr>
+                <td>{{character.weapons.Fire}}</td>
+                <td>{{character.weapons.Wind}}</td>
+                <td>{{character.weapons.Thunder}}</td>
+            </tr>
+            <tr>
+                <th>Light</th>
+                <th>Dark</th>
+                <th>Staves</th>
+            </tr>
+            <tr>
+                <td>{{character.weapons.Light}}</td>
+                <td>{{character.weapons.Dark}}</td>
+                <td>{{character.weapons.Staves}}</td>
+            </tr>
+            <tr>
+                <th>Magic Type</th>
+                <td colspan="2">
+                    <span *ngIf="character.weapons.MagicType === 0">None</span>
+                    <span *ngIf="character.weapons.MagicType === 1">Combat</span>
+                    <span *ngIf="character.weapons.MagicType === 2">Practical</span>
+                    <span *ngIf="character.weapons.MagicType === 3">Combat & Practical</span>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <div class="languages" *ngIf="character.languages">
         <h4>Language Proficiencies</h4>
-        <span>Coming Soon</span>
+        <table>
+            <tr *ngIf="character.languages.Trade">
+                <th>Trade</th>
+            </tr>
+            <tr *ngIf="character.languages.Trade">
+                <td>{{character.languages.Trade}}</td>
+            </tr>
+            <tr>
+                <th colspan="4" *ngIf="character.languages.TradeNotes">Trade Notes</th>
+            </tr>
+            <tr>
+                <td colspan="4" *ngIf="character.languages.TradeNotes">{{character.languages.TradeNotes}}</td>
+            </tr>
+            <tr *ngIf="character.languages.Dentorian || character.languages.OldDentorian || character.languages.HighDentortian || character.languages.OldHighDentorian">
+                <th>Dentorian</th>
+                <th>Old Dentorian</th>
+                <th>High Dentorian</th>
+                <th>Old High Dentorian</th>
+            </tr>
+            <tr *ngIf="character.languages.Dentorian || character.languages.OldDentorian || character.languages.HighDentortian || character.languages.OldHighDentorian">
+                <td>{{character.languages.Dentorian}}</td>
+                <td>{{character.languages.OldDentorian}}</td>
+                <td>{{character.languages.HighDentorian}}</td>
+                <td>{{character.languages.OldHighDentorian}}</td>
+            </tr>
+            <tr *ngIf="character.languages.DentorianNotes">
+                <th colspan="4">Dentorian Notes</th>
+            </tr>
+            <tr>
+                <td colspan="4">{{character.languages.DentorianNotes}}</td>
+            </tr>
+            <tr *ngIf="character.languages.Megami || character.languages.AncientMegami">
+                <th>Megami</th>
+                <th>Ancient Megami</th>
+            </tr>
+            <tr *ngIf="character.languages.Megami || character.languages.AncientMegami">
+                <td>{{character.languages.Megami}}</td>
+                <td>{{character.languages.AncientMegami}}</td>
+            </tr>
+            <tr *ngIf="character.languages.MegamiNotes">
+                <th colspan="4">Megami Notes</th>
+            </tr>
+            <tr *ngIf="character.languages.MegamiNotes">
+                <td colspan="4">{{character.languages.MegamiNotes}}</td>
+            </tr>
+            <tr *ngIf="character.languages.Atsirian || character.languages">
+                <th>Atsirian</th>
+                <th>Azsharan</th>
+                <th>Nomadic Atsirian</th>
+            </tr>
+            <tr *ngIf="character.languages.Atsirian || character.languages">
+                <td>{{character.languages.Atsirian}}</td>
+                <td>{{character.languages.Azsharan}}</td>
+                <td>{{character.languages.NomadicAtsirian}}</td>
+            </tr>
+            <tr *ngIf="character.languages.AtsirianNotes">
+                <th colspan="4">Atsirian Notes</th>
+            </tr>
+            <tr *ngIf="character.languages.AtsirianNotes">
+                <td colspan="4">{{character.languages.AtsirianNotes}}</td>
+            </tr>
+            <tr *ngIf="character.languages.Kilian || character.languages.RunicKilian || character.languages.Danaan">
+                <th>Kilian</th>
+                <th>Runic Kilian</th>
+                <th>Danaan</th>
+            </tr>
+            <tr *ngIf="character.languages.Kilian || character.languages.RunicKilian || character.languages.Danaan">
+                <td>{{character.languages.Kilian}}</td>
+                <td>{{character.languages.RunicKilian}}</td>
+                <td>{{character.languages.Danaan}}</td>
+            </tr>
+            <tr *ngIf="character.languages.KilianNotes">
+                <th colspan="4">Kilian Notes</th>
+            </tr>
+            <tr *ngIf="character.languages.KilianNotes">
+                <td colspan="4">{{character.languages.KilianNotes}}</td>
+            </tr>
+            <tr *ngIf="character.languages.Romani">
+                <th>Romani</th>
+            </tr>
+            <tr *ngIf="character.languages.Romani">
+                <td>{{character.languages.Romani}}</td>
+            </tr>
+            <tr *ngIf="character.languages.RomaniNotes">
+                <th>Romani Notes</th>
+            </tr>
+            <tr *ngIf="character.languages.RomaniNotes">
+                <td>{{character.languages.RomaniNotes}}</td>
+            </tr>
+        </table>
     </div>
 </div>
