@@ -1,3 +1,9 @@
+div.wrapper {
+    width: 95%;
+    overflow-x: auto;
+    margin: auto;
+}
+
 div.filter {
     width: 95%;
     margin: auto;
@@ -10,7 +16,7 @@ div.filter {
 }
 
 table {
-    width: 95%;
+    width: 100%;
     border-collapse: collapse;
     margin: auto;
 
