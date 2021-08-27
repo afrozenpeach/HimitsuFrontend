@@ -1,20 +1,28 @@
+div.filter {
+    width: 95%;
+    background-color: white;
+    margin: auto;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+
 table {
     width: 95%;
     border-collapse: collapse;
     margin: auto;
 
     tr {
-        th {
-            border-top-left-radius: 1em;
-            border-top-right-radius: 1em;
-        }
-
         td {
             padding: 10px;
             border: 1px solid black;
+            color: white;
         }
 
-        td.picture {
+        th {
+            color: white;
+        }
+
+        td.icon {
             img {
                 height: 100px;
                 width: 100px;
@@ -44,4 +52,9 @@ table {
     tr:nth-child(odd) {
         background-color: #2f3136;
     }
+}
+
+mat-paginator {
+    width: 95%;
+    margin: auto;
 }
