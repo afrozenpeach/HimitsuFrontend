@@ -36,4 +36,35 @@
         padding-right: 20px;
         padding-bottom: 20px;
     }
+
+    div.languages, div.weapons, div.magic {
+        table {
+            font-size: smaller;
+            border-collapse: collapse;
+
+            tr:nth-child(even) {
+                background-color: #36393f;
+            }
+
+            tr:nth-child(odd) {
+                background-color: #2f3136;
+            }
+
+            tr {
+                td:empty::after {
+                    content: "\00a0";
+                }
+
+                td {
+                    min-width: 135px;
+                    text-align: center;
+                    padding: 5px;
+                }
+
+                th {
+                    padding: 5px;
+                }
+            }
+        }
+    }
 }
