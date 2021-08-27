@@ -1,0 +1,14 @@
+div.menu {
+    text-align: center;
+    width: 100%;
+
+    ul {
+        list-style-type: none;
+        width: 100%;
+
+        li {
+            float: left;
+            width: 100px;
+        }
+    }
+}
