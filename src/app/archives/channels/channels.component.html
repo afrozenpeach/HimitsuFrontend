@@ -1,14 +1,16 @@
-<h1>{{category}}</h1>
+<div class="channels">
+    <h1>{{category}}</h1>
 
-<table>
-    <tr>
-       <th>Date</th>
-       <th>Location</th>
-       <th>Characters</th>
-    </tr>
-    <tr class="channel" *ngFor="let c of channels">
-        <td><a href="/archives/messages/{{c.id}}">{{c.date | amDateFormat: 'MMMM Do YYYY' }} ar</a></td>
-        <td>{{c.location}}</td>
-        <td>{{c.characters.join(', ')}}</td>
-    </tr>
-</table>
+    <table>
+        <tr>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Characters</th>
+        </tr>
+        <tr class="channel" *ngFor="let c of channels">
+            <td><a href="/archives/messages/{{c.id}}">{{c.date | amDateFormat: 'MMMM Do YYYY' }} ar</a></td>
+            <td>{{c.location}}</td>
+            <td>{{c.characters.join(', ')}}</td>
+        </tr>
+    </table>
+</div>
