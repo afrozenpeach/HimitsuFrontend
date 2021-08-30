@@ -1,4 +1,10 @@
 .profile {
+    width: 80%;
+    background-color: #424242;
+    margin: auto;
+    padding: 10px;
+    border-radius: 1em;
+
     div {
         clear: both;
         width: 200px;
@@ -12,4 +18,8 @@
     div.notes {
         width: auto;
     }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
 }
