@@ -1,4 +1,6 @@
-<div class="category" *ngFor="let c of categories">
-    <div *ngIf="c[0] === 'Archive - All Channels'"><br/></div>
-    <a href="/archives/channels/{{c[0]}}">{{c[0].replace('Archive - ', '')}}</a>
+<div class="categories">
+    <div class="category" *ngFor="let c of categories">
+        <div *ngIf="c[0] === 'Archive - All Channels'"><br/></div>
+        <a href="/archives/channels/{{c[0]}}">{{c[0].replace('Archive - ', '')}}</a>
+    </div>
 </div>
