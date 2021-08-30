@@ -263,12 +263,12 @@
             <tr *ngIf="character.languages.MegamiNotes">
                 <td colspan="4">{{character.languages.MegamiNotes}}</td>
             </tr>
-            <tr *ngIf="character.languages.Atsirian || character.languages">
+            <tr *ngIf="character.languages.Atsirian || character.languages.Azsharan || character.languages.NomadicAtsirian">
                 <th>Atsirian</th>
                 <th>Azsharan</th>
                 <th>Nomadic Atsirian</th>
             </tr>
-            <tr *ngIf="character.languages.Atsirian || character.languages">
+            <tr *ngIf="character.languages.Atsirian || character.languages.Azsharan || character.languages.NomadicAtsirian">
                 <td>{{character.languages.Atsirian}}</td>
                 <td>{{character.languages.Azsharan}}</td>
                 <td>{{character.languages.NomadicAtsirian}}</td>
