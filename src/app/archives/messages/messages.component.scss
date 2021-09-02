@@ -5,6 +5,8 @@ div.messages {
     margin: auto;
     padding: 10px;
     border-radius: 1em;
+    border-left: solid white 3px;
+    border-top: solid white 3px;
 
     .messageContainer {
         .message {
