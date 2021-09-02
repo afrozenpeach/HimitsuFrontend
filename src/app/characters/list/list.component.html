@@ -2,7 +2,19 @@
 
 <div class="filter">
     <mat-form-field>
-        <input matInput type="text" (keyup)="doFilter($event)" placeholder="Filter">
+        <input matInput type="text" (keyup)="doGlobalFilter($event)" placeholder="Filter">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doCharacterNameFilter($event)" placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doPlayerFilter($event)" placeholder="Player">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doHometownFilter($event)" placeholder="Hometown">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doHouseFilter($event)" placeholder="House">
     </mat-form-field>
 </div>
 

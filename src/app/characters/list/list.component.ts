@@ -24,7 +24,41 @@ export class ListComponent implements AfterViewInit {
     this.getCharacters();
   }
 
-  public doFilter = (event: Event) => {
+  public doGlobalFilter = (event: Event) => {
+    this.characters.filterPredicate = (data, filter) => {
+        const dataStr = Object.keys(data).reduce((currentTerm, key) => (
+            currentTerm + data[key] + '◬'
+        ), '').toLowerCase();
+        const transformedFilter = filter.trim().toLowerCase();
+        return dataStr.indexOf(transformedFilter) !== -1;
+    };
+
+    this.characters.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
+  public doCharacterNameFilter = (event: Event) => {
+    this.characters.filterPredicate = (data, filter) => (data.name?.toLocaleLowerCase().includes(filter));
+
+    this.characters.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
+  public doPlayerFilter = (event: Event) => {
+    this.characters.filterPredicate = (data, filter) => (data.player?.toLocaleLowerCase().includes(filter));
+
+    this.characters.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
+  public doHometownFilter = (event: Event) => {
+    this.characters.filterPredicate = (data, filter) => (
+      data.hometown.toLocaleLowerCase().includes(filter) || data.country?.toLocaleLowerCase().includes(filter)
+    );
+
+    this.characters.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
+  public doHouseFilter = (event: Event) => {
+    this.characters.filterPredicate = (data, filter) => (data.house?.toLocaleLowerCase().includes(filter));
+
     this.characters.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
   };
 
