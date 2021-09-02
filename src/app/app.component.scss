@@ -19,6 +19,11 @@ div.header {
                 float: left;
                 width: 100px;
                 display: block;
+
+                a {
+                    padding: 5px;
+                    display: block;
+                }
             }
 
             li:hover {
