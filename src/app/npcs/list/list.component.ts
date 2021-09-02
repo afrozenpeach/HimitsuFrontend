@@ -23,7 +23,41 @@ export class ListComponent implements AfterViewInit {
     this.getNPCs();
   }
 
-  public doFilter = (event: Event) => {
+  public doGlobalFilter = (event: Event) => {
+    this.npcs.filterPredicate = (data, filter) => {
+        const dataStr = Object.keys(data).reduce((currentTerm, key) => (
+            currentTerm + data[key] + '◬'
+        ), '').toLowerCase();
+        const transformedFilter = filter.trim().toLowerCase();
+        return dataStr.indexOf(transformedFilter) !== -1;
+    };
+
+    this.npcs.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
+  public doNameFilter = (event: Event) => {
+    this.npcs.filterPredicate = (data, filter) => (data.npcName?.toLocaleLowerCase().includes(filter));
+
+    this.npcs.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
+  public doStatusFilter = (event: Event) => {
+    this.npcs.filterPredicate = (data, filter) => (data.npcStatus?.toLocaleLowerCase().includes(filter));
+
+    this.npcs.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
+  public doSectFilter = (event: Event) => {
+    this.npcs.filterPredicate = (data, filter) => (data.npcSect?.toLocaleLowerCase().includes(filter));
+
+    this.npcs.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
+  public doHometownFilter = (event: Event) => {
+    this.npcs.filterPredicate = (data, filter) => (
+      data.npcCity?.toLocaleLowerCase().includes(filter) || data.npcCountry?.toLocaleLowerCase().includes(filter)
+    );
+
     this.npcs.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
   };
 
