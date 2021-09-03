@@ -41,6 +41,10 @@ export class MysqlService {
     return this.request('GET', environment.serverUrl + '/npcs/' + id);
   }
 
+  getFics() {
+    return this.request('GET', environment.serverUrl + '/fics');
+  }
+
   private async request(method: string, url: string, data?: any) {
     const result = this.http.request(method, url, {
       body: data,

@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'npcs',
     loadChildren: () => import('./npcs/npcs.module').then(m => m.NPCsModule)
+  },
+  {
+    path: 'fics',
+    loadChildren: () => import('./fics/fics.module').then(m => m.FicsModule)
   }
 ];
 

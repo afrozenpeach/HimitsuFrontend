@@ -1,0 +1,102 @@
+h1 {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+div.wrapper {
+    width: 95%;
+    overflow-x: auto;
+    margin: auto;
+    border-left: solid white 3px;
+}
+
+div.filter {
+    width: 95%;
+    margin: auto;
+    box-sizing: border-box;
+    padding-left: 20px;
+    color: black;
+    background-color: #424242;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-left: solid white 3px;
+    border-top: solid white 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+
+    tr {
+        td {
+            padding: 10px;
+            border: 1px solid black;
+            color: white;
+        }
+
+        th {
+            color: white;
+        }
+
+        td.icon {
+            width: 100px;
+            padding: 0px;
+
+            img {
+                height: 100px;
+                width: 100px;
+            }
+        }
+
+        td.nicknames {
+            span + span:last-child {
+                &::before {
+                    content: ", ";
+                }
+            }
+            span:nth-of-type(n + 2):not(:last-child) {
+                &::before {
+                    content: ", ";
+                }
+            }
+        }
+    }
+
+    tr:nth-child(even) {
+        background-color: #36393f;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #2f3136;
+    }
+}
+
+mat-paginator {
+    width: 95%;
+    margin: auto;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-left: solid white 3px;
+}
+
+.mat-form-field {
+    padding-top: 10px;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+    color: white;
+
+    input {
+        caret-color: white;
+    }
+
+    .mat-form-field-label {
+        color: white;
+    }
+
+    .mat-form-field-ripple {
+        transition: background-color 300ms cubic-bezier(0.55, 0, 0.55, 0.2);
+    }
+}

@@ -1,0 +1,56 @@
+<h1>Fics</h1>
+
+<div class="filter">
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doGlobalFilter($event)" placeholder="Global">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doTitleFilter($event)" placeholder="Title">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doAuthorFilter($event)" placeholder="Author">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doMainCharactersFilter($event)" placeholder="Main Characters">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doSummaryFilter($event)" placeholder="Summary">
+    </mat-form-field>
+</div>
+
+<div class="wrapper">
+    <table mat-table [dataSource]="fics" matSort>
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+            <td mat-cell *matCellDef="let f"><a href="{{f.url}}">{{f.title}}<span *ngIf="f.partnum"> - Part {{f.partnum}}</span></a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Author</th>
+            <td mat-cell *matCellDef="let f">{{f.author}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+            <td mat-cell *matCellDef="let f">{{getDate(f.year, f.month, f.day)}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="mainCharacters">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Main Characters</th>
+            <td mat-cell *matCellDef="let f">{{f.mainchars}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="summary">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Summary</th>
+            <td mat-cell *matCellDef="let f">{{f.summary}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<mat-paginator [pageSizeOptions]="[10, 20, 30, fics.data.length]"
+               showFirstLastButtons
+               aria-label="Select page of fics">
+</mat-paginator>
