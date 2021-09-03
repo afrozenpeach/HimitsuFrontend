@@ -52,6 +52,12 @@ export class ChannelsComponent implements OnInit {
     this.channels.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
   };
 
+  public doMessagesFilter = (event: Event) => {
+    this.channels.filterPredicate = (data, filter) => (data.messages?.toLocaleLowerCase().includes(filter));
+
+    this.channels.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+  };
+
   private getChannels(category) {
     this.mysql.getChannels(category).then((response: any) => {
       this.channels = new MatTableDataSource<any>(response);
