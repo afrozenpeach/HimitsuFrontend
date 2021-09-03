@@ -6,6 +6,9 @@ import { ChannelsComponent } from './channels/channels.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MomentModule } from 'ngx-moment';
 import { MomentTimezoneModule } from '../shared/moment-timezone/moment-timezone.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   { path: '', component: CategoriesComponent, pathMatch: 'full' },
@@ -23,6 +26,9 @@ const routes: Routes = [
     CommonModule,
     MomentModule,
     MomentTimezoneModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forChild(routes)
   ]
 })
