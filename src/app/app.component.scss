@@ -39,6 +39,12 @@ div.header {
             }
         }
     }
+
+    div.loginButtons {
+        text-align: left;
+        margin-left: 50px;
+        margin-top: 10px;
+    }
 }
 
 @media only screen and (max-width: 775px) {

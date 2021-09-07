@@ -8,6 +8,14 @@
             <li><a href="/fics">Fics</a></li>
         </ul>
     </div>
+
+    <div style="clear: both;"></div>
+
+    <div class="loginButtons">
+        <button class="btn btn-success mr-1" (click)='login()' *ngIf="!hasValidToken">login</button>
+        <span *ngIf="hasValidToken">Welcome {{identityClaims['preferred_username']}}!<br/></span>
+        <button class="btn btn-success mr-1" (click)='logout()' *ngIf="hasValidToken">logout</button>
+    </div>
 </div>
 
 <br/><br/>

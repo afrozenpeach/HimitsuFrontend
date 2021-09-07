@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { MysqlService } from '../../services/mysql.service';
+import { MysqlService } from '../../services/mysql/mysql.service';
 
 @Component({
   selector: 'app-channels',

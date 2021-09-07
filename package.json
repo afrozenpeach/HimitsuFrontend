@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~12.2.2",
     "@angular/platform-browser-dynamic": "~12.2.2",
     "@angular/router": "~12.2.2",
+    "angular-oauth2-oidc": "^12.1.0",
+    "angular-oauth2-oidc-jwks": "^12.0.0",
     "discord-markdown": "^2.4.1",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",

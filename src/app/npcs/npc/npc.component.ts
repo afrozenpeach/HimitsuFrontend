@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { MysqlService } from 'src/app/services/mysql.service';
+import { MysqlService } from 'src/app/services/mysql/mysql.service';
 
 @Component({
   selector: 'app-npc',

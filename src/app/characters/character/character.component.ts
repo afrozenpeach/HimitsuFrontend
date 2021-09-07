@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MysqlService } from '../../services/mysql.service';
+import { MysqlService } from '../../services/mysql/mysql.service';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
