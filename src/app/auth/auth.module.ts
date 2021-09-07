@@ -23,7 +23,7 @@ config.logoutUrl = `${config.issuer}v2/logout?client_id=${config.clientId}&retur
 const authModuleConfig: OAuthModuleConfig = {
   // Inject "Authorization: Bearer ..." header for these APIs:
   resourceServer: {
-    allowedUrls: ['https://fusionauth.host.lgbt'],
+    allowedUrls: ['https://franel.net/api', 'http://localhost:8080/api'],
     sendAccessToken: true,
   },
 };
