@@ -1,6 +1,7 @@
-<!doctype html>
 <html>
 <body>
-  <script>parent.postMessage(location.hash, location.origin);</script>
+    <script>
+        (window.opener || window.parent).postMessage(location.hash || ('#' + location.search), location.origin);
+    </script>
 </body>
 </html>
