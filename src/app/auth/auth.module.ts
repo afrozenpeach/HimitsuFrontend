@@ -13,10 +13,8 @@ const config: AuthConfig = {
   dummyClientSecret: 'Ov6s8-R0tExARstW7Lmu0kuthASoTZNiPlHPL53mXZw',
   redirectUri: window.location.origin,
   logoutUrl: 'TODO/v2/logout?returnTo=' + encodeURIComponent(window.location.origin),
-  silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
   scope: 'openid profile email offline_access',
   responseType: 'code',
-  useSilentRefresh: true,
   tokenEndpoint: 'https://fusionauth.host.lgbt/oauth2/token'
 };
 
