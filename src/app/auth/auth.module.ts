@@ -14,9 +14,10 @@ const config: AuthConfig = {
   redirectUri: window.location.origin,
   logoutUrl: 'TODO/v2/logout?returnTo=' + encodeURIComponent(window.location.origin),
   silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
-  scope: 'openid profile email',
+  scope: 'openid profile email offline_access',
   responseType: 'code',
-  useSilentRefresh: true
+  useSilentRefresh: true,
+  tokenEndpoint: 'https://fusionauth.host.lgbt/oauth2/token'
 };
 
 config.logoutUrl = `${config.issuer}v2/logout?client_id=${config.clientId}&returnTo=${encodeURIComponent(config.redirectUri)}`;
