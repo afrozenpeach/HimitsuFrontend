@@ -33,6 +33,10 @@ export class MysqlService {
     return this.request('GET', environment.serverUrl + '/characters/' + id);
   }
 
+  putCharacter(id, updatedCharacter) {
+    return this.request('PUT', environment.serverUrl + '/characters/' + id, updatedCharacter);
+  }
+
   getNPCs() {
     return this.request('GET', environment.serverUrl + '/npcs');
   }

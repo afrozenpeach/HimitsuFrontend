@@ -1,0 +1,207 @@
+<div class="profile" *ngIf="character">
+    <div class="nameblock">
+        <img class="picture" *ngIf="character.picture" src="https://host.lgbt/pics/{{character.picture}}">
+
+        <h2>{{character.name}}</h2>
+        <h3 *ngIf="character.nickname1 || character.nickname2">
+            (
+                <span *ngIf="character.nickname1">{{character.nickname1}}</span>
+                <span *ngIf="character.nickname2">{{character.nickname2}}</span>
+            )
+        </h3>
+    </div>
+
+    <div class="editor">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="{{character.name}}" value="{{character.name}}" [(ngModel)]='character.name'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Nickname 1</mat-label>
+            <input matInput placeholder="{{character.nickname1}}" value="{{character.nickname1}}" [(ngModel)]='character.nickname1'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Nickname 2</mat-label>
+            <input matInput placeholder="{{character.nickname2}}" value="{{character.nickname2}}" [(ngModel)]='character.nickname2'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Journal</mat-label>
+            <input matInput placeholder="{{character.journal}}" value="{{character.journal}}" [(ngModel)]='character.journal'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Jobs</mat-label>
+            <input matInput placeholder="{{character.jobs}}" value="{{character.jobs}}" [(ngModel)]='character.jobs'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Subjobs</mat-label>
+            <input matInput placeholder="{{character.subjobs}}" value="{{character.subjobs}}" [(ngModel)]='character.subjobs'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Social Class</mat-label>
+            <input matInput placeholder="{{character.socialclass}}" value="{{character.socialclass}}" [(ngModel)]='character.socialclass'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Country</mat-label>
+            <input matInput placeholder="{{character.country}}" value="{{character.country}}" [(ngModel)]='character.country'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Hometown</mat-label>
+            <input matInput placeholder="{{character.hometown}}" value="{{character.hometown}}" [(ngModel)]='character.hometown'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>House</mat-label>
+            <input matInput placeholder="{{character.house}}" value="{{character.house}}" [(ngModel)]='character.house'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Birth Month</mat-label>
+            <input matInput placeholder="{{character.birthmonth}}" value="{{character.birthmonth}}" [(ngModel)]='character.birthmonth'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Birth Date</mat-label>
+            <input matInput placeholder="{{character.birthdate}}" value="{{character.birthdate}}" [(ngModel)]='character.birthdate'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Birth Year</mat-label>
+            <input matInput placeholder="{{character.year}}" value="{{character.year}}" [(ngModel)]='character.year'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Zodiac</mat-label>
+            <input matInput placeholder="{{character.zodiac}}" value="{{character.zodiac}}" [(ngModel)]='character.zodiac'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Blood Type</mat-label>
+            <input matInput placeholder="{{character.bloodtype}}" value="{{character.bloodtype}}" [(ngModel)]='character.bloodtype'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Sect</mat-label>
+            <input matInput placeholder="{{character.sect}}" value="{{character.sect}}" [(ngModel)]='character.sect'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <input matInput placeholder="{{character.status}}" value="{{character.status}}" [(ngModel)]='character.status'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Player</mat-label>
+            <input matInput placeholder="{{character.player}}" value="{{character.player}}" [(ngModel)]='character.player'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Queued</mat-label>
+            <input matInput placeholder="{{character.queued}}" value="{{character.queued}}" [(ngModel)]='character.queued'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Adoptable</mat-label>
+            <input matInput placeholder="{{character.adoptable}}" value="{{character.adoptable}}" [(ngModel)]='character.adoptable'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Hair Color</mat-label>
+            <input matInput placeholder="{{character.haircolor}}" value="{{character.haircolor}}" [(ngModel)]='character.haircolor'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Eye Color</mat-label>
+            <input matInput placeholder="{{character.eyecolor}}" value="{{character.eyecolor}}" [(ngModel)]='character.eyecolor'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Height (feet)</mat-label>
+            <input matInput placeholder="{{character.heightfeet}}" value="{{character.heightfeet}}" [(ngModel)]='character.heightfeet'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Height (inches)</mat-label>
+            <input matInput placeholder="{{character.heightinches}}" value="{{character.heightinches}}" [(ngModel)]='character.heightinches'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Height (cms)</mat-label>
+            <input matInput placeholder="{{character.heightcms}}" value="{{character.heightcms}}" [(ngModel)]='character.heightcms'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Build</mat-label>
+            <input matInput placeholder="{{character.build}}" value="{{character.build}}" [(ngModel)]='character.build'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Skin Tone</mat-label>
+            <input matInput placeholder="{{character.skintone}}" value="{{character.skintone}}" [(ngModel)]='character.skintone'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Cup Size</mat-label>
+            <input matInput placeholder="{{character.cupsize}}" value="{{character.cupsize}}" [(ngModel)]='character.cupsize'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Dominant Hand</mat-label>
+            <input matInput placeholder="{{character.domhand}}" value="{{character.domhand}}" [(ngModel)]='character.domhand'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Identifiers</mat-label>
+            <input matInput placeholder="{{character.identifiers}}" value="{{character.identifiers}}" [(ngModel)]='character.identifiers'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Class</mat-label>
+            <input matInput placeholder="{{character.class}}" value="{{character.class}}" [(ngModel)]='character.class'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Past Classes</mat-label>
+            <input matInput placeholder="{{character.pastclasses}}" value="{{character.pastclasses}}" [(ngModel)]='character.pastclasses'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Mounted Combat</mat-label>
+            <input matInput placeholder="{{character.mountcombat}}" value="{{character.mountcombat}}" [(ngModel)]='character.mountcombat'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Orientation</mat-label>
+            <input matInput placeholder="{{character.orientation}}" value="{{character.orientation}}" [(ngModel)]='character.orientation'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Noncombat</mat-label>
+            <input matInput placeholder="{{character.nomcombat}}" value="{{character.nomcombat}}" [(ngModel)]='character.nomcombat'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Gender</mat-label>
+            <input matInput placeholder="{{character.gender}}" value="{{character.gender}}" [(ngModel)]='character.gender'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Special</mat-label>
+            <input matInput placeholder="{{character.special}}" value="{{character.special}}" [(ngModel)]='character.special'>
+        </mat-form-field>
+
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="buttons">
+        <button (click)="saveCharacter()">Save</button>
+        <button (click)="cancelChanges()">Cancel</button>
+    </div>
+</div>

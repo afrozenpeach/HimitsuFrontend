@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MysqlService } from '../../services/mysql/mysql.service';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-character',
@@ -16,6 +17,7 @@ export class CharacterComponent implements OnInit {
   constructor(
     private mysql: MysqlService,
     private route: ActivatedRoute,
+    private authService: AuthService,
     private sanitizer: DomSanitizer
   ) { }
 
@@ -35,6 +37,10 @@ export class CharacterComponent implements OnInit {
     } else {
       return 'npcs';
     }
+  }
+
+  public canEdit() {
+    return this.authService.hasValidToken();
   }
 
   private getCharacter() {

@@ -82,9 +82,42 @@
             }
         }
     }
+
+    div.editor {
+        clear: both;
+        float: none;
+        width: 100%;
+
+        mat-form-field {
+            float: left;
+            margin-right: 10px;
+        }
+    }
+
+    div.buttons {
+        button {
+            margin-right: 10px;
+        }
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     margin: 0;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+    color: white;
+
+    input {
+        caret-color: white;
+    }
+
+    .mat-form-field-label {
+        color: white;
+    }
+
+    .mat-form-field-ripple {
+        transition: background-color 300ms cubic-bezier(0.55, 0, 0.55, 0.2);
+    }
 }

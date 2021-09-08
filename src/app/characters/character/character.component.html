@@ -1,4 +1,8 @@
 <div class="profile" *ngIf="character">
+    <div class="editButton" *ngIf="canEdit()">
+        <a href="/characters/edit/{{characterId}}"><i class="fas fa-edit"></i></a>
+    </div>
+
     <div class="nameblock">
         <img class="picture" *ngIf="character.picture" src="https://host.lgbt/pics/{{character.picture}}">
 

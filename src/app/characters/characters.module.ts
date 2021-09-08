@@ -8,16 +8,21 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { EditorComponent } from './editor/editor.component';
+import { AuthGuard } from '../services/auth-guard/auth-guard.service';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: ListComponent, pathMatch: 'full' },
+  { path: 'edit/:character', component: EditorComponent, canActivate: [AuthGuard] },
   { path: ':character', component: CharacterComponent}
 ];
 
 @NgModule({
   declarations: [
     ListComponent,
-    CharacterComponent
+    CharacterComponent,
+    EditorComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +31,7 @@ const routes: Routes = [
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })
