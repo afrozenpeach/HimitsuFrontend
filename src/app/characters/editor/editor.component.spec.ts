@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { AuthModule } from 'src/app/auth/auth.module';
 
 import { EditorComponent } from './editor.component';
 
@@ -8,6 +11,7 @@ describe('EditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule, AuthModule.forRoot(), RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }) ],
       declarations: [ EditorComponent ]
     })
     .compileComponents();
