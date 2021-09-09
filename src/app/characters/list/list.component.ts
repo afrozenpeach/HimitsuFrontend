@@ -3,6 +3,7 @@ import { MysqlService } from '../../services/mysql/mysql.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
@@ -18,7 +19,10 @@ export class ListComponent implements AfterViewInit {
   characters = new MatTableDataSource<any>([]);
   displayedColumns: string[] = ['icon', 'name', 'nicknames', 'journal', 'player', 'status', 'sect', 'hometown', 'house'];
 
-  constructor(private mysql: MysqlService) { }
+  constructor(
+    private mysql: MysqlService,
+    private authService: AuthService
+  ) { }
 
   ngAfterViewInit(): void {
     this.getCharacters();
@@ -61,6 +65,14 @@ export class ListComponent implements AfterViewInit {
 
     this.characters.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
   };
+
+  public canEdit() {
+    return this.authService.hasValidToken();
+  }
+
+  public newCharacter() {
+    window.location.href = '/characters/edit/new';
+  }
 
   private getCharacters() {
     this.mysql.getCharacters().then((response: any) => {

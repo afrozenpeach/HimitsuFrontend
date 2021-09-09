@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MysqlService } from 'src/app/services/mysql/mysql.service';
 
@@ -32,10 +32,52 @@ export class EditorComponent implements OnInit {
     this.route.paramMap
       .subscribe(params => {
         this.characterId = params.get('character');
-      }
-    );
+        this.character = {
+          picture: null,
+          name: null,
+          nickname1: null,
+          nickname2: null,
+          journal: null,
+          jobs: null,
+          subjobs: null,
+          socialclass: null,
+          country: null,
+          hometown: null,
+          house: null,
+          birthmonth: null,
+          birthdate: null,
+          year: null,
+          zodiac: null,
+          bloodtype: null,
+          sect: null,
+          status: null,
+          player: null,
+          queued: null,
+          adoptable: null,
+          haircolor: null,
+          eyecolor: null,
+          heightfeet: null,
+          heightinches: null,
+          heightcms: null,
+          build: null,
+          skintone: null,
+          cupsize: null,
+          domhand: null,
+          identifiers: null,
+          class: null,
+          pastclasses: null,
+          mountcombat: null,
+          orientation: null,
+          noncombat: null,
+          gender: null,
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          Special: ''
+        };
+      });
 
-    this.getCharacter();
+    if (this.characterId !== 'new') {
+      this.getCharacter();
+    }
   }
 
   public getRoute(charType) {
@@ -59,24 +101,45 @@ export class EditorComponent implements OnInit {
       this.character.adoptable = 0;
     }
 
-    this.mysql.putCharacter(this.characterId, this.character)
-    .then(() => {
-      window.location.href = '/characters/' + this.characterId;
-    })
-    .catch(theError => {
-      console.log({error: theError, character: this.character});
-      let message = theError?.error?.details[0]?.message;
+    if (this.characterId === 'new') {
+      this.mysql.postCharacter(this.character)
+      .then(r => {
+        window.location.href = '/characters/' + r;
+      })
+      .catch(theError => {
+        console.log({error: theError, character: this.character});
+        let message = theError?.error?.details[0]?.message;
 
-      if (!message) {
-        message = theError.error;
-      }
+        if (!message) {
+          message = theError.error;
+        }
 
-      alert('Error saving: ' + message);
-    });
+        alert('Error saving: ' + message);
+      });
+    } else {
+      this.mysql.putCharacter(this.characterId, this.character)
+      .then(() => {
+        window.location.href = '/characters/' + this.characterId;
+      })
+      .catch(theError => {
+        console.log({error: theError, character: this.character});
+        let message = theError?.error?.details[0]?.message;
+
+        if (!message) {
+          message = theError.error;
+        }
+
+        alert('Error saving: ' + message);
+      });
+    }
   }
 
   public cancelChanges() {
-    window.location.href = '/characters/' + this.characterId;
+    if (this.characterId === 'new') {
+      window.location.href = '/characters';
+    } else {
+      window.location.href = '/characters/' + this.characterId;
+    }
   }
 
   private getCharacter() {

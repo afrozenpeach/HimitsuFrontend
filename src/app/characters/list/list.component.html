@@ -16,6 +16,7 @@
     <mat-form-field color="accent">
         <input matInput type="text" (keyup)="doHouseFilter($event)" placeholder="House">
     </mat-form-field>
+    <button mat-raised-button color="accent" (click)="newCharacter()" *ngIf="canEdit()">New Character</button>
 </div>
 
 <div class="wrapper">
