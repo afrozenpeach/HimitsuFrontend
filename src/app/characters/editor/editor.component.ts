@@ -21,6 +21,7 @@ export class EditorComponent implements OnInit {
   domhands = ['Right', 'Left', 'Mixed', 'Ambidextrous'];
   orientations = ['Bicurious', 'Straight', 'Gay', 'Bi', 'Asexual', 'Undecided', 'Unknown', 'Bisexual'].sort();
   genders = ['F', 'M', 'N'].sort();
+  statuses = ['Normal', 'Dead', 'Missing', 'Incapacitated'].sort();
 
   constructor(
     private mysql: MysqlService,

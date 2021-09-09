@@ -115,14 +115,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-::ng-deep .mat-form-field.mat-focused {
+::ng-deep .mat-form-field {
     color: white;
-
-    input {
-        caret-color: white;
-    }
-
-    .mat-form-field-label {
-        color: white;
-    }
 }
