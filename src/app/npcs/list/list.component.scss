@@ -85,18 +85,6 @@ mat-paginator {
     padding-top: 10px;
 }
 
-::ng-deep .mat-form-field.mat-focused {
+::ng-deep .mat-form-field {
     color: white;
-
-    input {
-        caret-color: white;
-    }
-
-    .mat-form-field-label {
-        color: white;
-    }
-
-    .mat-form-field-ripple {
-        transition: background-color 300ms cubic-bezier(0.55, 0, 0.55, 0.2);
-    }
 }
