@@ -129,8 +129,12 @@
         <div class="clear: both;"></div>
 
         <mat-form-field color="accent">
-            <mat-label>Sect</mat-label>
-            <input matInput placeholder="{{character.sect}}" value="{{character.sect}}" [(ngModel)]='character.sect'>
+          <mat-label>Sect</mat-label>
+          <mat-select [(ngModel)]='character.sect'>
+            <mat-option *ngFor="let s of sects" [value]="s">
+              {{s}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field color="accent">
@@ -241,16 +245,13 @@
         </mat-form-field>
 
         <mat-form-field color="accent">
-            <mat-label>Mounted Combat</mat-label>
-            <input matInput placeholder="{{character.mountcombat}}" value="{{character.mountcombat}}" [(ngModel)]='character.mountcombat'>
-        </mat-form-field>
-
-        <mat-form-field color="accent">
             <mat-label>Special</mat-label>
             <input matInput placeholder="{{character.special}}" value="{{character.special}}" [(ngModel)]='character.special'>
         </mat-form-field>
 
         <div class="clear: both;"></div>
+
+        <mat-slide-toggle [(ngModel)]="character.mountcombat">Mounted Combat</mat-slide-toggle>
 
         <mat-slide-toggle [(ngModel)]="character.queued">Queued</mat-slide-toggle>
 

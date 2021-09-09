@@ -22,6 +22,7 @@ export class EditorComponent implements OnInit {
   orientations = ['Bicurious', 'Straight', 'Gay', 'Bi', 'Asexual', 'Undecided', 'Unknown', 'Bisexual'].sort();
   genders = ['F', 'M', 'N'].sort();
   statuses = ['Normal', 'Dead', 'Missing', 'Incapacitated'].sort();
+  sects = ['Unknown', 'Neutral', 'Pillar of Light', 'Messenger of Darkness', 'Silent One'].sort();
 
   constructor(
     private mysql: MysqlService,
@@ -99,6 +100,12 @@ export class EditorComponent implements OnInit {
       this.character.adoptable = 1;
     } else {
       this.character.adoptable = 0;
+    }
+
+    if (this.character.mountcombat) {
+      this.character.mountcombat = 1;
+    } else {
+      this.character.mountcombat = 0;
     }
 
     if (this.characterId === 'new') {
