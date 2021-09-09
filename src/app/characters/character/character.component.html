@@ -126,6 +126,18 @@
         <p>{{character.pastclasses}}</p>
     </div>
 
+    <div class="mountedCombat" *ngIf="character.mountcombat">
+        <h4>Mounted Combat</h4>
+    </div>
+
+    <div class="queued" *ngIf="character.queued">
+        <h4>Queued</h4>
+    </div>
+
+    <div class="adoptable" *ngIf="character.adoptable">
+        <h4>Adoptable</h4>
+    </div>
+
     <div class="mounts" *ngIf="character.mounts">
         <h4>Mounts</h4>
         <p *ngFor="let m of character.mounts">{{m.MountName}} - {{m.MountGender}} {{m.MountColor}} {{m.MountType}} - {{m.Status}} <span *ngIf="m.Current">(current)</span></p>
