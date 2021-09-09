@@ -11,6 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { EditorComponent } from './editor/editor.component';
 import { AuthGuard } from '../services/auth-guard/auth-guard.service';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   { path: '', component: ListComponent, pathMatch: 'full' },
@@ -32,6 +35,9 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatButtonModule,
     RouterModule.forChild(routes)
   ]
 })

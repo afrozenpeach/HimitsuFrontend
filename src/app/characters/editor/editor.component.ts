@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { MysqlService } from 'src/app/services/mysql/mysql.service';
 
@@ -13,10 +12,19 @@ export class EditorComponent implements OnInit {
   public character: any;
   public characterId: any;
 
+  countries = ['Atsiria', 'Dentoria', 'Hanalan', 'Kanemoria', 'Kilia', 'Korin', 'Megam', 'Romani'].sort();
+  months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'Novemeber', 'December'];
+  zodiacs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
+  bloodtypes = ['A', 'AB', 'B', 'B-', 'B+', 'O'].sort();
+  players = ['Elzie', 'Elaine', 'Frozen', 'Playerless', 'Meg', 'Rosa', 'Sara', 'Nineveh', 'Dots', 'Mike', 'Silvie', 'Vicki'].sort();
+  cupsizes = ['A', 'B', 'C', 'D', 'N/A', 'DD'].sort();
+  domhands = ['Right', 'Left', 'Mixed', 'Ambidextrous'];
+  orientations = ['Bicurious', 'Straight', 'Gay', 'Bi', 'Asexual', 'Undecided', 'Unknown', 'Bisexual'].sort();
+  genders = ['F', 'M', 'N'].sort();
+
   constructor(
     private mysql: MysqlService,
-    private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -38,14 +46,31 @@ export class EditorComponent implements OnInit {
   }
 
   public saveCharacter() {
+    if (this.character.queued) {
+      this.character.queued = 1;
+    } else {
+      this.character.queued = 0;
+    }
+
+    if (this.character.adoptable) {
+      this.character.adoptable = 1;
+    } else {
+      this.character.adoptable = 0;
+    }
+
     this.mysql.putCharacter(this.characterId, this.character)
     .then(() => {
       window.location.href = '/characters/' + this.characterId;
     })
-    .catch(error => {
-      console.log(error);
-      console.log(this.character);
-      alert('Error saving: ' + error.error.details[0].message);
+    .catch(theError => {
+      console.log({error: theError, character: this.character});
+      let message = theError?.error?.details[0]?.message;
+
+      if (!message) {
+        message = theError.error;
+      }
+
+      alert('Error saving: ' + message);
     });
   }
 

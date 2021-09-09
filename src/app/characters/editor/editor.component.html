@@ -32,6 +32,20 @@
             <input matInput placeholder="{{character.journal}}" value="{{character.journal}}" [(ngModel)]='character.journal'>
         </mat-form-field>
 
+        <div style="clear: both;"></div>
+
+        <mat-form-field class="wide">
+            <mat-label>Identifiers</mat-label>
+            <textarea matInput placeholder="{{character.identifiers}}" [(ngModel)]='character.identifiers'>{{character.identifiers}}</textarea>
+        </mat-form-field>
+
+        <mat-form-field class="wide">
+            <mat-label>Noncombat</mat-label>
+            <input matInput placeholder="{{character.nomcombat}}" value="{{character.nomcombat}}" [(ngModel)]='character.nomcombat'>
+        </mat-form-field>
+
+        <div class="clear: both;"></div>
+
         <mat-form-field>
             <mat-label>Jobs</mat-label>
             <input matInput placeholder="{{character.jobs}}" value="{{character.jobs}}" [(ngModel)]='character.jobs'>
@@ -47,9 +61,15 @@
             <input matInput placeholder="{{character.socialclass}}" value="{{character.socialclass}}" [(ngModel)]='character.socialclass'>
         </mat-form-field>
 
+        <div class="clear: both;"></div>
+
         <mat-form-field>
-            <mat-label>Country</mat-label>
-            <input matInput placeholder="{{character.country}}" value="{{character.country}}" [(ngModel)]='character.country'>
+          <mat-label>Country</mat-label>
+          <mat-select [(ngModel)]='character.country'>
+            <mat-option *ngFor="let c of countries" [value]="c">
+              {{c}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field>
@@ -62,30 +82,46 @@
             <input matInput placeholder="{{character.house}}" value="{{character.house}}" [(ngModel)]='character.house'>
         </mat-form-field>
 
+        <div class="clear: both;"></div>
+
         <mat-form-field>
-            <mat-label>Birth Month</mat-label>
-            <input matInput placeholder="{{character.birthmonth}}" value="{{character.birthmonth}}" [(ngModel)]='character.birthmonth'>
+          <mat-label>Birth Month</mat-label>
+          <mat-select [(ngModel)]='character.birthmonth'>
+            <mat-option *ngFor="let m of months" [value]="m">
+              {{m}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Birth Date</mat-label>
-            <input matInput placeholder="{{character.birthdate}}" value="{{character.birthdate}}" [(ngModel)]='character.birthdate'>
+            <input matInput type="number" placeholder="{{character.birthdate}}" value="{{character.birthdate}}" [(ngModel)]='character.birthdate'>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Birth Year</mat-label>
-            <input matInput placeholder="{{character.year}}" value="{{character.year}}" [(ngModel)]='character.year'>
+            <input matInput type="number" placeholder="{{character.year}}" value="{{character.year}}" [(ngModel)]='character.year'>
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Zodiac</mat-label>
-            <input matInput placeholder="{{character.zodiac}}" value="{{character.zodiac}}" [(ngModel)]='character.zodiac'>
+          <mat-label>Zodiac</mat-label>
+          <mat-select [(ngModel)]='character.zodiac'>
+            <mat-option *ngFor="let z of zodiacs" [value]="z">
+              {{z}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Blood Type</mat-label>
-            <input matInput placeholder="{{character.bloodtype}}" value="{{character.bloodtype}}" [(ngModel)]='character.bloodtype'>
+          <mat-label>Blood Type</mat-label>
+          <mat-select [(ngModel)]='character.bloodtype'>
+            <mat-option *ngFor="let b of bloodtypes" [value]="b">
+              {{b}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
+
+        <div class="clear: both;"></div>
 
         <mat-form-field>
             <mat-label>Sect</mat-label>
@@ -98,19 +134,15 @@
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Player</mat-label>
-            <input matInput placeholder="{{character.player}}" value="{{character.player}}" [(ngModel)]='character.player'>
+          <mat-label>Player</mat-label>
+          <mat-select [(ngModel)]='character.player'>
+            <mat-option *ngFor="let p of players" [value]="p">
+              {{p}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Queued</mat-label>
-            <input matInput placeholder="{{character.queued}}" value="{{character.queued}}" [(ngModel)]='character.queued'>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Adoptable</mat-label>
-            <input matInput placeholder="{{character.adoptable}}" value="{{character.adoptable}}" [(ngModel)]='character.adoptable'>
-        </mat-form-field>
+        <div class="clear: both;"></div>
 
         <mat-form-field>
             <mat-label>Hair Color</mat-label>
@@ -123,18 +155,63 @@
         </mat-form-field>
 
         <mat-form-field>
+            <mat-label>Skin Tone</mat-label>
+            <input matInput placeholder="{{character.skintone}}" value="{{character.skintone}}" [(ngModel)]='character.skintone'>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Cup Size</mat-label>
+          <mat-select [(ngModel)]='character.cupsize'>
+            <mat-option *ngFor="let c of cupsizes" [value]="c">
+              {{c}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Dominant Hand</mat-label>
+          <mat-select [(ngModel)]='character.domhand'>
+            <mat-option *ngFor="let d of domhands" [value]="d">
+              {{d}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="clear: both;"></div>
+
+        <mat-form-field>
+          <mat-label>Orientation</mat-label>
+          <mat-select [(ngModel)]='character.orientation'>
+            <mat-option *ngFor="let o of orientations" [value]="o">
+              {{o}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <mat-select [(ngModel)]='character.gender'>
+            <mat-option *ngFor="let g of genders" [value]="g">
+              {{g}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="clear: both;"></div>
+
+        <mat-form-field>
             <mat-label>Height (feet)</mat-label>
-            <input matInput placeholder="{{character.heightfeet}}" value="{{character.heightfeet}}" [(ngModel)]='character.heightfeet'>
+            <input matInput type="number" placeholder="{{character.heightfeet}}" value="{{character.heightfeet}}" [(ngModel)]='character.heightfeet'>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Height (inches)</mat-label>
-            <input matInput placeholder="{{character.heightinches}}" value="{{character.heightinches}}" [(ngModel)]='character.heightinches'>
+            <input matInput type="number" placeholder="{{character.heightinches}}" value="{{character.heightinches}}" [(ngModel)]='character.heightinches'>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Height (cms)</mat-label>
-            <input matInput placeholder="{{character.heightcms}}" value="{{character.heightcms}}" [(ngModel)]='character.heightcms'>
+            <input matInput type="number" placeholder="{{character.heightcms}}" value="{{character.heightcms}}" [(ngModel)]='character.heightcms'>
         </mat-form-field>
 
         <mat-form-field>
@@ -142,25 +219,7 @@
             <input matInput placeholder="{{character.build}}" value="{{character.build}}" [(ngModel)]='character.build'>
         </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Skin Tone</mat-label>
-            <input matInput placeholder="{{character.skintone}}" value="{{character.skintone}}" [(ngModel)]='character.skintone'>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Cup Size</mat-label>
-            <input matInput placeholder="{{character.cupsize}}" value="{{character.cupsize}}" [(ngModel)]='character.cupsize'>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Dominant Hand</mat-label>
-            <input matInput placeholder="{{character.domhand}}" value="{{character.domhand}}" [(ngModel)]='character.domhand'>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Identifiers</mat-label>
-            <input matInput placeholder="{{character.identifiers}}" value="{{character.identifiers}}" [(ngModel)]='character.identifiers'>
-        </mat-form-field>
+        <div class="clear: both;"></div>
 
         <mat-form-field>
             <mat-label>Class</mat-label>
@@ -178,30 +237,21 @@
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Orientation</mat-label>
-            <input matInput placeholder="{{character.orientation}}" value="{{character.orientation}}" [(ngModel)]='character.orientation'>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Noncombat</mat-label>
-            <input matInput placeholder="{{character.nomcombat}}" value="{{character.nomcombat}}" [(ngModel)]='character.nomcombat'>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Gender</mat-label>
-            <input matInput placeholder="{{character.gender}}" value="{{character.gender}}" [(ngModel)]='character.gender'>
-        </mat-form-field>
-
-        <mat-form-field>
             <mat-label>Special</mat-label>
             <input matInput placeholder="{{character.special}}" value="{{character.special}}" [(ngModel)]='character.special'>
         </mat-form-field>
+
+        <div class="clear: both;"></div>
+
+        <mat-slide-toggle [(ngModel)]="character.queued">Queued</mat-slide-toggle>
+
+        <mat-slide-toggle [(ngModel)]="character.adoptable">Adoptable</mat-slide-toggle>
 
         <div style="clear: both;"></div>
     </div>
 
     <div class="buttons">
-        <button (click)="saveCharacter()">Save</button>
-        <button (click)="cancelChanges()">Cancel</button>
+        <button mat-raised-button color="accent" (click)="saveCharacter()">Save</button>
+        <button mat-raised-button color="warn" (click)="cancelChanges()">Cancel</button>
     </div>
 </div>
